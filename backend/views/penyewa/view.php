@@ -1,0 +1,44 @@
+<?php
+
+use yii\helpers\Html;
+use yii\widgets\DetailView;
+
+/* @var $this yii\web\View */
+/* @var $model common\models\Penyewa */
+
+$this->title = $model->id_penyewa;
+$this->params['breadcrumbs'][] = ['label' => 'Penyewas', 'url' => ['index']];
+$this->params['breadcrumbs'][] = $this->title;
+\yii\web\YiiAsset::register($this);
+?>
+<div class="penyewa-view">
+
+    <h1><?= Html::encode($this->title) ?></h1>
+
+    <p>
+        <?= Html::a('Update', ['update', 'id' => $model->id_penyewa], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Delete', ['delete', 'id' => $model->id_penyewa], [
+            'class' => 'btn btn-danger',
+            'data' => [
+                'confirm' => 'Are you sure you want to delete this item?',
+                'method' => 'post',
+            ],
+        ]) ?>
+    </p>
+
+    <?= DetailView::widget([
+        'model' => $model,
+        'attributes' => [
+            'id_penyewa',
+            'nama_lengkap',
+            'password',
+            'email:email',
+            'jenkel',
+            'pekerjaan',
+            'alamat:ntext',
+            'kota',
+            'provinsi',
+        ],
+    ]) ?>
+
+</div>
